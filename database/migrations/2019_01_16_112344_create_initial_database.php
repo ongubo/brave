@@ -30,14 +30,12 @@ class CreateInitialDatabase extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-        
 
         Schema::create('status', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('description');
         });
-
 
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
@@ -54,7 +52,9 @@ class CreateInitialDatabase extends Migration
             $table->increments('id');
             $table->integer('event_id')->unsigned();
             $table->foreign('event_id')->references('id')->on('events');
-            $table->string('name');
+            $table->integer('status_id')->unsigned();
+            $table->foreign('status_id')->references('id')->on('status');
+            $table->string('code');
             $table->float('value', 10, 2);
             $table->float('radius', 10, 2);
             $table->timestamp('expires_at')->nullable();
