@@ -46,6 +46,7 @@ class CreateInitialDatabase extends Migration
             $table->string('address')->nullable();
             $table->float('lat', 10, 6);
             $table->float('long', 10, 6);
+            $table->timestamp('starts_at')->nullable();
             $table->timestamps();
         });
 
