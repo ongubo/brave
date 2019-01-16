@@ -26,5 +26,5 @@ The app runs on a sqlite database
 
 I have also shared a postman collection that has all the request that i have been making to the APP.
 
-The collection can also be found here. [Postman Collection](https://documenter.getpostman.com/view/949588/RznLEvPr).
+The collection can also be found here. [Postman Collection](https://documenter.getpostman.com/view/949588/RznLEvUA).
  
