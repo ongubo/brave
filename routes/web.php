@@ -1,16 +1,37 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It is a breeze. Simply tell Lumen the URIs it should respond to
-| and give it the Closure to call when that URI is requested.
-|
-*/
-
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return response()->json(
+        [
+            'message' => "welcome to brave API",
+        ]
+    );
 });
+
+$router->post('/event/create', [
+     'uses' => 'UserController@create_event',
+]);
+
+$router->post('/promocode/deactivate', [
+    'uses' => 'UserController@deactivate_promo_code',
+]);
+
+$router->post('/promocode/update/radius', [
+    'uses' => 'UserController@update_promo_code_radius',
+]);
+
+
+$router->get('/promocode/active', [
+    'uses' => 'ApiController@active_promo_codes',
+]);
+
+$router->get('/promocode/all', [
+    'uses' => 'ApiController@all_promo_codes',
+]);
+
+$router->post('/promocode/redeem', [
+    'uses' => 'ApiController@redeem_promo_code',
+]);
+
+
+
